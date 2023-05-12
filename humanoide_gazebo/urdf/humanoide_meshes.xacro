@@ -1,0 +1,256 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="base_link" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="3.928" />
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <inertia ixx="0.03045018333" ixy="0" ixz="0" iyy="0.0453029" iyz="0" izz="0.01683311667"/>
+            </inertial>
+
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.22 0.055 0.3"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <!--box size="0.22 0.055 0.3"/-->
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="brazo" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.248" />
+                <origin xyz="0 0 -0.11" rpy="0 0 0" />
+                <inertia ixx="0.001033333333" ixy="0" ixz="0" iyy="0.001033333333" iyz="0" izz="0.00006613333333"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.04 0.04 0.22"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                    <!--mesh filename="package://robot_description/meshes/wheel.stl"/-->
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="palma" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.062" />
+                <origin xyz="0 0 -0.11" rpy="0 0 0" />
+                <inertia ixx="0.0002190718333" ixy="0" ixz="0" iyy="0.0002119573333" iyz="0" izz="0.00001769583333"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.032 0.049 0.2"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                    <!--mesh filename="package://robot_description/meshes/wheel.stl"/-->
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="metal_pierna" params="name x y z r p yaw">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.028" />
+                <origin xyz="0 -0.02625 -0.0325" rpy="0 0 0" />
+                <inertia ixx="0.00003045" ixy="0" ixz="0" iyy="0.000008458333333" iyz="0" izz="0.00002945833333"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <box size="0.04 0.105 0.045"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x} ${y} ${z}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <box size="0.04 0.105 0.045"/>
+                    <!--mesh filename="package://robot_description/meshes/wheel.stl"/-->
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="servos_muslo" params="name x y z r p yaw">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.306" />
+                <origin xyz="0 0 -0.02" rpy="0 0 0" />
+                <inertia ixx="0.000307275" ixy="0" ixz="0" iyy="0.0001408875" iyz="0" izz="0.0002938875"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <box size="0.05 0.095 0.055"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x} ${y} ${z}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <box size="0.05 0.095 0.055"/>
+                    <!--mesh filename="package://robot_description/meshes/wheel.stl"/-->
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="pieza_pierna_sup" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.37" />
+                <origin xyz="0 0 -0.21" rpy="0 0 0" />
+                <inertia ixx="0.005241666667" ixy="0" ixz="0" iyy="0.005241666667" iyz="0" izz="0.003798666667"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.04 0.04 0.22"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="pieza_pierna_inf" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.35" />
+                <origin xyz="0 0 -0.11" rpy="0 0 0" />
+                <inertia ixx="0.001458333333" ixy="0" ixz="0" iyy="0.001458333333" iyz="0" izz="0.00009333333333"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.04 0.04 0.22"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="pie" params="name x y z x_in y_in z_in r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.2" />
+                <origin xyz="${x_in} ${y_in} ${z_in}" rpy="0 0 0" />
+                <inertia ixx="0.0006683333333" ixy="0" ixz="0" iyy="0.0003766666667" iyz="0" izz="0.001041666667"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.15 0.2 0.01"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="hombro" params="name x y z x_in y_in z_in r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.075" />
+                <origin xyz="${x_in} ${y_in} ${z_in}" rpy="0 0 0" />
+                <inertia ixx="0.000018125" ixy="0" ixz="0" iyy="0.000008125" iyz="0" izz="0.0000212585"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.03 0.05 0.02"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${hombro}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="cuello" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.075" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <inertia ixx="0.000018125" ixy="0" ixz="0" iyy="0.000008125" iyz="0" izz="0.0000212585"/><inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
+            </inertial>
+            <collision>
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 ${PI/2}" />
+                <geometry>
+                    <box size="0.03 0.05 0.02"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${hombro}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="cabeza" params="name x y z r p yaw x_vis y_vis z_vis mesh">
+        <link name="${name}">
+            <inertial>
+                <mass value="0.186" />
+                <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+                <inertia ixx="0.0018042" ixy="0" ixz="0" iyy="0.00173445" iyz="0" izz="0.00052545"/>
+            </inertial>
+            <collision>
+                <origin xyz="0 0 0.01" rpy="0 0 ${PI/2}" />
+                <geometry>
+                    <box size="0.04 0.035 0.09"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="${x_vis} ${y_vis} ${z_vis}" rpy="${r} ${p} ${yaw}" />
+                <geometry>
+                    <mesh filename="${mesh}" scale = "0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+        </link>
+    </xacro:macro>
+    <xacro:macro name="joint_revoluta" params="name x y z gx gy gz parent child effort velocity">
+        <joint name="${name}" type="revolute">
+            <origin rpy="0 0 0" xyz="${x} ${y} ${z}" />
+            <child link="${child}" />
+            <parent link="${parent}" />
+            <axis rpy="0 0 0" xyz="${gx} ${gy} ${gz}" />
+            <limit effort="${effort}" lower="0" upper="${2*PI}" velocity="${velocity}"/>
+        </joint>
+    </xacro:macro>
+    <!-- ROS Control plugin for Gazebo -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/simple_model</robotNamespace>
+        </plugin>
+    </gazebo>
+    
+</robot>

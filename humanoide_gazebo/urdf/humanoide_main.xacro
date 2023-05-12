@@ -1,0 +1,206 @@
+<?xml version="1.0" ?>
+<robot name="BogoBot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find humanoide_gazebo)/urdf/material.xacro" />
+    <xacro:include filename="$(find humanoide_gazebo)/urdf/parameters.xacro" />
+    <xacro:include filename="$(find humanoide_gazebo)/urdf/humanoide_meshes.xacro"/>
+    <xacro:include filename="$(find humanoide_gazebo)/urdf/motores.xacro" />
+    <!--Piezas-->
+
+    <!--Link Torso-->
+    <xacro:base_link name="link_torso" x = "0" y = "0" z = "0.59" r = "0" p = "0" yaw = "${PI/2}" 
+    x_vis = "0.0" y_vis = "0.11" z_vis = "0.44" mesh = "${torax}"/>
+
+    <!--Link Brazo izquierdo-->
+    <xacro:brazo name="link_brazo_izquierdo" x = "0" y = "0" z = "-0.105" r = "0.185" p = "0" yaw = "-${PI/2}"
+    x_vis = "0.13" y_vis = "0.1735" z_vis = "0" mesh = "${bicep}"/>
+    <!--Link palma izquierdo-->
+    <xacro:palma name="link_palma_izquierdo" x = "0" y = "0" z = "-0.09" r = "${PI/2}" p = "0" yaw = "${-PI/2}"
+     x_vis = "0.005" y_vis = "0.0" z_vis = "-0.02" mesh = "${palma}"/>
+    <!--Link Brazo derecho-->
+    <xacro:brazo name="link_brazo_derecho" x = "0" y = "0" z = "-0.105" r = "0.185" p = "0" yaw = "${PI/2}"
+    x_vis = "-0.13" y_vis = "-0.1735" z_vis = "0" mesh = "${bicep}"/>
+    <!--Link palma derecho-->
+    <xacro:palma name="link_palma_derecho" x = "0" y = "0" z = "-0.09" r = "${PI/2}" p = "0" yaw = "${PI/2}"
+     x_vis = "-0.005" y_vis = "0.0" z_vis = "-0.02" mesh = "${palma}"/>
+
+    <!--Link metal_pierna_izquierda-->
+    <xacro:metal_pierna name="link_metal_pierna_izquierda" x = "0" y = "-0.02625" z = "-0.0325" r = "0" p = "0" yaw = "0"/>
+    <!--Link servos_pierna_izquierda-->
+    <xacro:servos_muslo name="link_servos_pierna_izquierda" x = "0" y = "0" z = "-0.02" r = "0" p = "0" yaw = "0"/>
+    <!--Link muslo_pierna_izquierda-->
+    <xacro:pieza_pierna_sup name="link_muslo_pierna_izquierda" x = "0" y = "0" z = "-0.11" r = "0.13" p = "-0.13" yaw = "${-PI/2}"
+    x_vis = "-0.0775" y_vis = "-0.0075" z_vis = "-0.565" mesh = "${muslo}"/>
+    <!--Link rodilla_pierna_izquierda-->
+    <xacro:pieza_pierna_inf name="link_rodilla_pierna_izquierda" x = "0" y = "0" z = "-0.09" r = "0" p = "0" yaw = "${-PI/2}"
+    x_vis = "-0.1375" y_vis = "0.007" z_vis = "-0.22" mesh = "${pantorrilla}"/>
+    <!--Link servos_tob_pierna_izquierda-->
+    <xacro:servos_muslo name="link_servos_tob_pierna_izquierda" x = "0" y = "-0.02625" z = "-0.02" r = "0" p = "0" yaw = "0"/>
+    <!--Link pie izq-->
+    <xacro:pie name="link_pie_izq" x = "-0.03" y = "-0.025" z = "-0.03" x_in = "-0.03" y_in = "-0.025" z_in = "-0.03" r = "0" p = "0" yaw = "${PI/2}" 
+    x_vis = "0" y_vis = "-0.05125" z_vis = "-0.03" mesh = "${pie_izq}"/>
+    <!--Link metal_hombro_izq-->
+    <xacro:hombro name="link_hombro_izq" x = "-0.015" y = "0.0" z = "0.0" x_in = "-0.015" y_in = "0.0" z_in = "0.0"  r = "0" p = "0" yaw = "${-PI/2}"
+    x_vis = "0.095" y_vis = "0.1735" z_vis = "0.0" mesh = "${hombro}"/>
+
+    <!--Link metal_pierna_derecha-->
+    <xacro:metal_pierna name="link_metal_pierna_derecha" x = "0" y = "-0.02625" z = "-0.0325" r = "0" p = "0" yaw = "0"/>
+    <!--Link servos_pierna_derecha-->
+    <xacro:servos_muslo name="link_servos_pierna_derecha" x = "0" y = "0" z = "-0.02" r = "0" p = "0" yaw = "0"/>
+    <!--Link muslo_pierna_derecha-->
+    <xacro:pieza_pierna_sup name="link_muslo_pierna_derecha" x = "0" y = "0" z = "-0.11" r = "0.13" p = "-0.13" yaw = "${-PI/2}"
+    x_vis = "-0.0775" y_vis = "-0.0075" z_vis = "-0.565" mesh = "${muslo}"/>
+    <!--Link rodilla_pierna_derecha-->
+    <xacro:pieza_pierna_inf name="link_rodilla_pierna_derecha" x = "0" y = "0" z = "-0.09" r = "0" p = "0" yaw = "${-PI/2}"
+     x_vis = "-0.1375" y_vis = "0.007" z_vis = "-0.22" mesh = "${pantorrilla}"/>
+    <!--Link servos_tob_pierna_derecha-->
+    <xacro:servos_muslo name="link_servos_tob_pierna_derecha" x = "0" y = "-0.02625" z = "-0.02" r = "0" p = "0" yaw = "0"/>
+    <!--Link pie der-->
+    <xacro:pie name="link_pie_der" x = "0.03" y = "-0.025" z = "-0.03" x_in = "0.03" y_in = "-0.025" z_in = "-0.03" r = "0" p = "0" yaw = "${PI/2}" 
+    x_vis = "0" y_vis = "-0.05125" z_vis = "-0.03" mesh = "${pie_der}"/>
+    <!--Link metal_hombro_der-->
+    <xacro:hombro name="link_hombro_der" x = "0.015" y = "0.0" z = "0.0" x_in = "0.015" y_in = "0.0" z_in = "0.0" r = "0" p = "0" yaw = "${PI/2}"
+    x_vis = "-0.095" y_vis = "-0.1735" z_vis = "0.0" mesh = "${hombro}"/>
+
+    <!--Link cuello-->
+    <xacro:cuello name="link_cuello" x = "0.0" y = "0.0" z = "0.0" r = "${-PI/2}" p = "0" yaw = "0"
+    x_vis = "-0.175" y_vis = "0" z_vis = "-0.1" mesh = "${hombro}"/>
+    <!--Link cabeza-->
+    <xacro:cabeza name="link_cabeza" x = "0.0" y = "0.0" z = "0.01" r = "0" p = "${(-PI/4)-0.2}" yaw = "${PI/2}"
+    x_vis = "0" y_vis = "0.35" z_vis = "-0.085" mesh = "${cabeza}"/>
+
+
+    <!--joints-->
+    <!--Joint Torso - cuello-->
+    <xacro:joint_revoluta name="q19"
+     x = "0.0" y = "0.0" z = "0.75" parent = "link_torso" 
+     gx = "0" gy = "0" gz = "1" 
+     child = "link_cuello" effort = "2.5" velocity = "0.92"/>
+     <!--Joint cuello - cabeza-->
+    <xacro:joint_revoluta name="q20"
+     x = "0.0" y = "0.0" z = "0.02" parent = "link_cuello" 
+     gx = "-1" gy = "0" gz = "0" 
+     child = "link_cabeza" effort = "2.5" velocity = "0.92"/>
+
+    <!--Joint Torso - hombro izquierdo-->
+    <xacro:joint_revoluta name="q13"
+     x = "-0.11" y = "0.0" z = "0.7" parent = "link_torso" 
+     gx = "-1" gy = "0" gz = "0" 
+     child = "link_hombro_izq" effort = "2.5" velocity = "0.92"/>
+    <!--joint hombro izquierdo - Brazo izquierdo-->
+    <xacro:joint_revoluta name="q14"
+     x = "-0.03" y = "0.0" z = "0.01" parent = "link_hombro_izq" 
+     gx = "0" gy = "-1" gz = "0" 
+     child = "link_brazo_izquierdo" effort = "2.5" velocity = "0.92"/>
+     <!--joint Brazo izquierdo - palmal izquierdo-->
+    <xacro:joint_revoluta name="q15"
+     x = "0.0" y = "0.0" z = "-0.2" parent = "link_brazo_izquierdo" 
+     gx = "0" gy = "1" gz = "0" 
+     child = "link_palma_izquierdo" effort = "2.5" velocity = "0.92"/>
+
+    <!--Joint Torso - hombro derecho-->
+    <xacro:joint_revoluta name="q16"
+     x = "0.11" y = "0.0" z = "0.7" parent = "link_torso" 
+     gx = "1" gy = "0" gz = "0" 
+     child = "link_hombro_der" effort = "2.5" velocity = "0.92"/>
+    <!--joint hombro derecho - Brazo derecho-->
+    <xacro:joint_revoluta name="q17"
+     x = "0.03" y = "0.0" z = "0.01" parent = "link_hombro_der" 
+     gx = "0" gy = "-1" gz = "0" 
+     child = "link_brazo_derecho" effort = "2.5" velocity = "0.92"/>
+     <!--joint Brazo derecho - palma derecho-->
+    <xacro:joint_revoluta name="q18"
+     x = "0.0" y = "0.0" z = "-0.2" parent = "link_brazo_derecho" 
+     gx = "0" gy = "1" gz = "0" 
+     child = "link_palma_derecho" effort = "2.5" velocity = "0.92"/>
+
+    <!--Joint Torso - metal pierna izquierda X-->
+    <joint name="q6" type="fixed">
+        <origin rpy="0 0 0" xyz="-0.06 0.0 0.44" />
+        <child link="link_metal_pierna_izquierda" />
+        <parent link="link_torso" />
+        <limit effort="2.5" lower="0" upper="${2*PI}" velocity="0.92"/>
+    </joint>
+    <!--Joint metal pierna izquierdo - servos pierna izquierda X-->
+    <xacro:joint_revoluta name="q5"
+     x = "0.0" y = "-0.02625" z = "-0.03" parent = "link_metal_pierna_izquierda" 
+     gx = "0" gy = "1" gz = "0" 
+     child = "link_servos_pierna_izquierda" effort = "8.4" velocity = "0.45"/>
+     <!--Joint servos pierna izquierda - muslo izq-->
+    <xacro:joint_revoluta name="q4"
+     x = "0.0" y = "0.02" z = "0.01" parent = "link_servos_pierna_izquierda" 
+     gx = "-1" gy = "0" gz = "0" 
+     child = "link_muslo_pierna_izquierda" effort = "8.4" velocity = "0.45"/>
+     <!--Joint muslo izq - rodilla izq-->
+    <xacro:joint_revoluta name="q3"
+     x = "0.0" y = "0.0" z = "-0.2" parent = "link_muslo_pierna_izquierda" 
+     gx = "-1" gy = "0" gz = "0" 
+     child = "link_rodilla_pierna_izquierda" effort = "8.4" velocity = "0.45"/>
+     <!--Joint rodilla izq - tob_izq-->
+    <xacro:joint_revoluta name="q2"
+     x = "0.0" y = "-0.0" z = "-0.16" parent = "link_rodilla_pierna_izquierda" 
+     gx = "1" gy = "0" gz = "0" 
+     child = "link_servos_tob_pierna_izquierda" effort = "8.4" velocity = "0.45"/>
+     <!--Joint tob_izq - pie izq-->
+    <xacro:joint_revoluta name="q1"
+     x = "0.0" y = "0.02625" z = "-0.025" parent = "link_servos_tob_pierna_izquierda" 
+     gx = "0" gy = "-1" gz = "0" 
+     child = "link_pie_izq" effort = "8.4" velocity = "0.45"/>
+
+     <!--Joint Torso - metal pierna derechaX-->
+    <joint name="q12" type="fixed">
+        <origin rpy="0 0 0" xyz="0.06 0.0 0.44" />
+        <child link="link_metal_pierna_derecha" />
+        <parent link="link_torso" />
+        <limit effort="8.4" lower="0" upper="${2*PI}" velocity="0.45"/>
+    </joint>
+    <!--Joint metal pierna derecha - servos pierna derecha X-->
+    <xacro:joint_revoluta name="q11"
+     x = "0.0" y = "-0.02625" z = "-0.03" parent = "link_metal_pierna_derecha" 
+     gx = "0" gy = "1" gz = "0" 
+     child = "link_servos_pierna_derecha" effort = "8.4" velocity = "0.45"/>
+     <!--Joint servos pierna derecha - muslo der-->
+    <xacro:joint_revoluta name="q10"
+     x = "0.0" y = "0.02" z = "0.01" parent = "link_servos_pierna_derecha" 
+     gx = "1" gy = "0" gz = "0" 
+     child = "link_muslo_pierna_derecha" effort = "8.4" velocity = "0.45"/>
+     <!--Joint muslo der - rodilla der-->
+    <xacro:joint_revoluta name="q9"
+     x = "0.0" y = "0.0" z = "-0.2" parent = "link_muslo_pierna_derecha" 
+     gx = "1" gy = "0" gz = "0" 
+     child = "link_rodilla_pierna_derecha" effort = "8.4" velocity = "0.45"/>
+     <!--Joint rodilla der - tob_der-->
+    <xacro:joint_revoluta name="q8"
+     x = "0.0" y = "0.0" z = "-0.16" parent = "link_rodilla_pierna_derecha" 
+     gx = "-1" gy = "0" gz = "0" 
+     child = "link_servos_tob_pierna_derecha" effort = "8.4" velocity = "0.45"/>
+     <!--Joint tob_der - pie der-->
+    <xacro:joint_revoluta name="q7"
+     x = "0.0" y = "0.02625" z = "-0.025" parent = "link_servos_tob_pierna_derecha" 
+     gx = "0" gy = "-1" gz = "0" 
+     child = "link_pie_der" effort = "8.4" velocity = "0.45"/>
+    <!--Transmisiones-->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/Bogobot_model</robotNamespace>
+        </plugin>
+    </gazebo>
+    <xacro:MX_106T name = "q1_trans" motor_name = "motor_q1" joint_name = "q1"/>
+    <xacro:MX_106T name = "q2_trans" motor_name = "motor_q2" joint_name = "q2"/>
+    <xacro:MX_106T name = "q3_trans" motor_name = "motor_q3" joint_name = "q3"/>
+    <xacro:MX_106T name = "q4_trans" motor_name = "motor_q4" joint_name = "q4"/>
+    <xacro:MX_106T name = "q5_trans" motor_name = "motor_q5" joint_name = "q5"/>
+    <xacro:MX_106T name = "q7_trans" motor_name = "motor_q7" joint_name = "q7"/>
+    <xacro:MX_106T name = "q8_trans" motor_name = "motor_q8" joint_name = "q8"/>
+    <xacro:MX_106T name = "q9_trans" motor_name = "motor_q9" joint_name = "q9"/>
+    <xacro:MX_106T name = "q10_trans" motor_name = "motor_q10" joint_name = "q10"/>
+    <xacro:MX_106T name = "q11_trans" motor_name = "motor_q11" joint_name = "q11"/>
+    <xacro:MX_28T name = "q13_trans" motor_name = "motor_q13" joint_name = "q13"/>
+    <xacro:MX_28T name = "q14_trans" motor_name = "motor_q14" joint_name = "q14"/>
+    <xacro:MX_28T name = "q15_trans" motor_name = "motor_q15" joint_name = "q15"/>
+    <xacro:MX_28T name = "q16_trans" motor_name = "motor_q16" joint_name = "q16"/>
+    <xacro:MX_28T name = "q17_trans" motor_name = "motor_q17" joint_name = "q17"/>
+    <xacro:MX_28T name = "q18_trans" motor_name = "motor_q18" joint_name = "q18"/>
+    <xacro:MX_28T name = "q19_trans" motor_name = "motor_q19" joint_name = "q19"/>
+    <xacro:MX_28T name = "q20_trans" motor_name = "motor_q20" joint_name = "q20"/>
+    
+</robot>

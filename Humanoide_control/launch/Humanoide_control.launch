@@ -1,0 +1,29 @@
+<launch>    
+    <!-- load the controllers -->
+    <rosparam file="$(find Humanoide_control)/config/controller.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" ns="/Bogobot_model" type="spawner" respawn="false"
+    output="screen"
+    args="q1_trans
+          q2_trans
+          q3_trans
+          q4_trans
+          q5_trans
+          q7_trans
+          q8_trans
+          q9_trans
+          q10_trans
+          q11_trans
+          q13_trans
+          q14_trans
+          q15_trans
+          q16_trans
+          q17_trans
+          q18_trans
+          q19_trans
+          q20_trans
+          joint_state_controller"/>
+    <!-- converts joint states to TF transforms -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <remap from="joint_states" to="/Bogobot_model/joint_states" />
+    </node>
+</launch>

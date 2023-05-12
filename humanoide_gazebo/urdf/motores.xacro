@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="MX_106T" params="name motor_name joint_name">
+        <!-- transmission -->
+        <transmission name="${name}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${motor_name}">
+                <mechanicalReduction>10</mechanicalReduction>
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </actuator>
+            <joint name="${joint_name}">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+    </xacro:macro>
+    <xacro:macro name="MX_28T" params="name motor_name joint_name">
+        <!-- transmission -->
+        <transmission name="${name}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${motor_name}">
+                <mechanicalReduction>10</mechanicalReduction>
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </actuator>
+            <joint name="${joint_name}">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+    </xacro:macro>
+</robot>

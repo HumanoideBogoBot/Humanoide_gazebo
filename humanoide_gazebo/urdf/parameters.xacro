@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!--parameters for gazebo properties-->
+<xacro:property name="PI" value="3.1415926535897931"/>
+<xacro:property name="pie_izq"  value="package://humanoide_gazebo/meshes/pie_izquierdo_AllCATPart.stl" />
+<xacro:property name="pie_der"  value="package://humanoide_gazebo/meshes/pie_derecho_AllCATPart.stl" />
+<xacro:property name="muslo"  value="package://humanoide_gazebo/meshes/muslo_AllCATPart.stl" />
+<xacro:property name="pantorrilla"  value="package://humanoide_gazebo/meshes/pantorrilla_AllCATPart.stl" />
+<xacro:property name="tobillo"  value="package://humanoide_gazebo/meshes/tobillo_AllCATPart.stl" />
+<xacro:property name="torax"  value="package://humanoide_gazebo/meshes/torax_AllCATPart.stl"/>
+<xacro:property name="hombro"  value="package://humanoide_gazebo/meshes/hombro_AllCATPart.stl" />
+<xacro:property name="bicep"  value="package://humanoide_gazebo/meshes/biceps_AllCATPart.stl" />
+<xacro:property name="palma"  value="package://humanoide_gazebo/meshes/palma.stl" />
+<xacro:property name="cabeza"  value="package://humanoide_gazebo/meshes/cabeza_AllCATPart.stl" />
+
+</robot>

@@ -1,0 +1,78 @@
+
+Bogobot_model: 
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  q1_trans:
+    type: effort_controllers/JointPositionController
+    joint: q1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q2_trans:
+    type: effort_controllers/JointPositionController
+    joint: q2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q3_trans:
+    type: effort_controllers/JointPositionController
+    joint: q3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q4_trans:
+    type: effort_controllers/JointPositionController
+    joint: q4
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q5_trans:
+    type: effort_controllers/JointPositionController
+    joint: q5
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q7_trans:
+    type: effort_controllers/JointPositionController
+    joint: q7
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q8_trans:
+    type: effort_controllers/JointPositionController
+    joint: q8
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q9_trans:
+    type: effort_controllers/JointPositionController
+    joint: q9
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q10_trans:
+    type: effort_controllers/JointPositionController
+    joint: q10
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q11_trans:
+    type: effort_controllers/JointPositionController
+    joint: q11
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q13_trans:
+    type: effort_controllers/JointPositionController
+    joint: q13
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q14_trans:
+    type: effort_controllers/JointPositionController
+    joint: q14
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q15_trans:
+    type: effort_controllers/JointPositionController
+    joint: q15
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q16_trans:
+    type: effort_controllers/JointPositionController
+    joint: q16
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q17_trans:
+    type: effort_controllers/JointPositionController
+    joint: q17
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q18_trans:
+    type: effort_controllers/JointPositionController
+    joint: q18
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q19_trans:
+    type: effort_controllers/JointPositionController
+    joint: q19
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  q20_trans:
+    type: effort_controllers/JointPositionController
+    joint: q20
+    pid: {p: 100.0, i: 0.01, d: 10.0}
