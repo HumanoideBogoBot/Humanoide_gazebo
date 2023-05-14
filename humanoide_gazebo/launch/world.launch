@@ -6,5 +6,8 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
+  <include file="$(find Humanoide_control)/launch/Humanoide_control.launch" />
+  <include file="$(find humanoide_gazebo)/launch/Humanoide_spawn.launch" />
+  <node pkg="humanoide_mov" type="T_pose.py" name="T_pose"></node>
   
 </launch>

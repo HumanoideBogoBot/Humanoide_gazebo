@@ -1,78 +1,126 @@
 
 Bogobot_model: 
-  # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50  
-  q1_trans:
-    type: effort_controllers/JointPositionController
-    joint: q1
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q2_trans:
-    type: effort_controllers/JointPositionController
-    joint: q2
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q3_trans:
-    type: effort_controllers/JointPositionController
-    joint: q3
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q4_trans:
-    type: effort_controllers/JointPositionController
-    joint: q4
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q5_trans:
-    type: effort_controllers/JointPositionController
-    joint: q5
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q7_trans:
-    type: effort_controllers/JointPositionController
-    joint: q7
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q8_trans:
-    type: effort_controllers/JointPositionController
-    joint: q8
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q9_trans:
-    type: effort_controllers/JointPositionController
-    joint: q9
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q10_trans:
-    type: effort_controllers/JointPositionController
-    joint: q10
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q11_trans:
-    type: effort_controllers/JointPositionController
-    joint: q11
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q13_trans:
-    type: effort_controllers/JointPositionController
-    joint: q13
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q14_trans:
-    type: effort_controllers/JointPositionController
-    joint: q14
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q15_trans:
-    type: effort_controllers/JointPositionController
-    joint: q15
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q16_trans:
-    type: effort_controllers/JointPositionController
-    joint: q16
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q17_trans:
-    type: effort_controllers/JointPositionController
-    joint: q17
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q18_trans:
-    type: effort_controllers/JointPositionController
-    joint: q18
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q19_trans:
-    type: effort_controllers/JointPositionController
-    joint: q19
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  q20_trans:
-    type: effort_controllers/JointPositionController
-    joint: q20
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+  
+  left_leg_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - q1
+      - q2
+      - q3
+      - q4
+      - q5
+
+    constraints:
+      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.02 # Override default
+      q1: {trajectory: 0.05, goal: 0.02}
+      q2: {trajectory: 0.05, goal: 0.02}
+      q3: {trajectory: 0.05, goal: 0.02}
+      q4: {trajectory: 0.05, goal: 0.02}
+      q5: {trajectory: 0.05, goal: 0.02}
+
+    gains: # Required because we're controlling an effort interface
+      q1: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q2: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q3: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q4: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q5: {p: 100,  d: 1, i: 1, i_clamp: 1}
+
+    state_publish_rate:  25            # Override default
+    action_monitor_rate: 30            # Override default
+    stop_trajectory_duration: 0        # Override default
+  right_leg_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - q7
+      - q8
+      - q9
+      - q10
+      - q11
+
+    constraints:
+      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.02 # Override default
+      q7: {trajectory: 0.05, goal: 0.02}
+      q8: {trajectory: 0.05, goal: 0.02}
+      q9: {trajectory: 0.05, goal: 0.02}
+      q10: {trajectory: 0.05, goal: 0.02}
+      q11: {trajectory: 0.05, goal: 0.02}
+
+    gains: # Required because we're controlling an effort interface
+      q7: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q8: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q9: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q10: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q11: {p: 100,  d: 1, i: 1, i_clamp: 1}
+
+    state_publish_rate:  25            # Override default
+    action_monitor_rate: 30            # Override default
+    stop_trajectory_duration: 0        # Override default
+  left_arm_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - q13
+      - q14
+      - q15
+
+    constraints:
+      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.02 # Override default
+      q13: {trajectory: 0.05, goal: 0.02}
+      q14: {trajectory: 0.05, goal: 0.02}
+      q15: {trajectory: 0.05, goal: 0.02}
+
+    gains: # Required because we're controlling an effort interface
+      q13: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q14: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q15: {p: 100,  d: 1, i: 1, i_clamp: 1}
+
+    state_publish_rate:  25            # Override default
+    action_monitor_rate: 30            # Override default
+    stop_trajectory_duration: 0        # Override default
+  right_arm_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - q16
+      - q17
+      - q18
+
+    constraints:
+      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.02 # Override default
+      q16: {trajectory: 0.05, goal: 0.02}
+      q17: {trajectory: 0.05, goal: 0.02}
+      q18: {trajectory: 0.05, goal: 0.02}
+
+    gains: # Required because we're controlling an effort interface
+      q16: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q17: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q18: {p: 100,  d: 1, i: 1, i_clamp: 1}
+
+    state_publish_rate:  25            # Override default
+    action_monitor_rate: 30            # Override default
+    stop_trajectory_duration: 0        # Override default
+  head_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - q19
+      - q20
+
+    constraints:
+      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.02 # Override default
+      q19: {trajectory: 0.05, goal: 0.02}
+      q20: {trajectory: 0.05, goal: 0.02}
+
+    gains: # Required because we're controlling an effort interface
+      q19: {p: 100,  d: 1, i: 1, i_clamp: 1}
+      q20: {p: 100,  d: 1, i: 1, i_clamp: 1}
+
+    state_publish_rate:  25            # Override default
+    action_monitor_rate: 30            # Override default
+    stop_trajectory_duration: 0        # Override default
+  

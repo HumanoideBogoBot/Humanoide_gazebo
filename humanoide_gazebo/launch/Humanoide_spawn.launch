@@ -3,5 +3,5 @@
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find humanoide_gazebo)/urdf/humanoide_main.xacro'" />
 
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model Bogobot_model -param robot_description 
-    -x 0 -y 0 -z 2"/>
+    -x 0 -y 0 -z 2 -R 0 -R 0 -Y -1.58"/>
 </launch>

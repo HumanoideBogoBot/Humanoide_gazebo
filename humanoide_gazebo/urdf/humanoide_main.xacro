@@ -129,7 +129,7 @@
     <xacro:joint_revoluta name="q4"
      x = "0.0" y = "0.02" z = "0.01" parent = "link_servos_pierna_izquierda" 
      gx = "-1" gy = "0" gz = "0" 
-     child = "link_muslo_pierna_izquierda" effort = "8.4" velocity = "0.45"/>
+     child = "link_muslo_pierna_izquierda" effort = "55" velocity = "0.45"/>
      <!--Joint muslo izq - rodilla izq-->
     <xacro:joint_revoluta name="q3"
      x = "0.0" y = "0.0" z = "-0.2" parent = "link_muslo_pierna_izquierda" 
