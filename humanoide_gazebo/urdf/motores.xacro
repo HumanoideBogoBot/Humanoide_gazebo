@@ -5,7 +5,7 @@
         <transmission name="${name}">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="${motor_name}">
-                <mechanicalReduction>10</mechanicalReduction>
+                <mechanicalReduction>1</mechanicalReduction>
                 <hardwareInterface>EffortJointInterface</hardwareInterface>
             </actuator>
             <joint name="${joint_name}">
@@ -18,7 +18,7 @@
         <transmission name="${name}">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="${motor_name}">
-                <mechanicalReduction>10</mechanicalReduction>
+                <mechanicalReduction>1</mechanicalReduction>
                 <hardwareInterface>EffortJointInterface</hardwareInterface>
             </actuator>
             <joint name="${joint_name}">

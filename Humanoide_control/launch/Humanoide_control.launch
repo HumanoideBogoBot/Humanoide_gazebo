@@ -4,4 +4,5 @@
     <node name="controller_spawner" pkg="controller_manager" ns="/Bogobot_model" type="spawner" respawn="false"
     output="screen"
     args="joint_state_controller left_leg_controller right_leg_controller left_arm_controller right_arm_controller head_controller"/>
+    
 </launch>
