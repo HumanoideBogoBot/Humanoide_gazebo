@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!--Aqui declaramos los macros de las diferentes partes del robot-->
     <xacro:macro name="base_link" params="name x y z r p yaw x_vis y_vis z_vis mesh">
         <link name="${name}">
             <inertial>

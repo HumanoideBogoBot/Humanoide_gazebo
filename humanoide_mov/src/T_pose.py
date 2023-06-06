@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+#Leonardo Gracida Munoz A01379812
+#Daniel Fuentes Castro A01750425
+#Santiago Ortiz Suzarte A01750402
+
+"""Aqui hacemos lo mismo que Mov_joint, solo que aqui solo hacemos la pose base al spawnear el robot"""
 
 import rospy
 import numpy as np
