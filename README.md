@@ -22,3 +22,5 @@ humanoide_mov/src/Mov_joint.py
 ```
 sudo apt install ros-melodic-joint-trajectory-controller
 ```
+- Solamente copia estos paquetes en tu workspace y compilalo para que puedas correr la simulacion en tu computadora
+- Esta simulacion usa ROS melodic

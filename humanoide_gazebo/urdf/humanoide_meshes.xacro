@@ -308,7 +308,7 @@
                 <frameName>link_torso</frameName>
                 <initialOrientationAsReference>false</initialOrientationAsReference>
             </plugin>
-            <pose>0 0 0 0 0 0</pose>
+            <pose>0 0 0 1.57 0 1.57</pose>
             </sensor>
         </gazebo>
     </xacro:macro>

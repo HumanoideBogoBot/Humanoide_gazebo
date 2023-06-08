@@ -18,7 +18,7 @@ class Bogobot_mov():
         self.right_arm_pos = rospy.Publisher("/Bogobot_model/right_arm_controller/command", JointTrajectory,queue_size=10)
         #Largo de las piernas
         self.L = 0.21
-        #Posición incial de las piernas
+        #Posicion incial de las piernas
         self.inicial = (0,0,-0.3)
         #Tiempo en el que quiero que complete la trayectoria
         self.tf_inicial = 2
@@ -30,7 +30,7 @@ class Bogobot_mov():
         q = (qf -qo)*(10-15*(t/tf)+6*(t/tf)**2)*(t/tf)**3 + qo
         return q
     
-    #Cinemática inversa de la pierna izquierda
+    #Cinematica inversa de la pierna izquierda
     def IK_piz(self,Px,Py,Pz):
         c3 = ((Px**2 + Py**2 + Pz**2 - 2*self.L**2)/(2*self.L**2))
         q3 = np.arccos(c3)
@@ -40,7 +40,7 @@ class Bogobot_mov():
         q1 = q5
         return (q1,q2,q3,q4,q5)
     
-    #Cinemática inversa de la pierna derecha
+    #Cinematica inversa de la pierna derecha
     def IK_pder(self,Px,Py,Pz):
         c9 = ((Px**2 + Py**2 + Pz**2)/(2*self.L**2))-1
         q9 = -np.arccos(c9)
@@ -96,7 +96,7 @@ class Bogobot_mov():
         grados_brazo_izq = self.IK_brazo_izq(0.05,0.20,-0.2)
         #Obtenemos cinematica inversa del brazo derecho
         grados_brazo_der = self.IK_brazo_der(-0.05,0.20,-0.2)
-        #Iniciamos un contador de tiempo para haer interpolación
+        #Iniciamos un contador de tiempo para haer interpolacion
         t0 = rospy.get_rostime().to_sec()
         #iniciamos el contador
         while t <= self.tf_inicial:
@@ -105,7 +105,7 @@ class Bogobot_mov():
             point.joint_names =  ["q1","q2","q3","q4","q5"]
             #Grupo de joints pierna derecha
             point_der = JointTrajectory()
-            point_der.joint_names =  ["q7","q8","q9","q10","q11"]}
+            point_der.joint_names =  ["q7","q8","q9","q10","q11"]
             #Grupo de joints brazo izquierdo
             point_arm = JointTrajectory()
             point_arm.joint_names =  ["q13","q14","q15"]
